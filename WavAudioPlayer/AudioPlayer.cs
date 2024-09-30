@@ -8,6 +8,9 @@ namespace WavAudioPlayer
         [DllImport("winmm.dll", SetLastError = true, CharSet = CharSet.Auto)]
         private static extern bool PlaySound(string pszSound, IntPtr hmod, uint fdwSound);
 
+        [DllImport("winmm.dll", SetLastError = true, CharSet = CharSet.Auto, EntryPoint = "waveOutSetVolume")]
+        private static extern bool WaveOutSetVolume(IntPtr hwo, uint dwVolume);
+
         // Flags for playing sound
         private const uint SND_ASYNC = 0x0001;
         private const uint SND_FILENAME = 0x00020000;
@@ -37,6 +40,21 @@ namespace WavAudioPlayer
         public void StopSound()
         {
             PlaySound(null, IntPtr.Zero, SND_PURGE);
+        }
+
+        private void SetVolume(int volume)
+        {
+            volume = Clamp(volume, 0, 100);
+
+            uint scaledVolume = (uint)((volume * 0xFFFF / 100) & 0xFFFF);
+            uint volumeAllChannels = scaledVolume | (scaledVolume << 16);
+
+            WaveOutSetVolume(IntPtr.Zero, volumeAllChannels);
+        }
+
+        private int Clamp(int value, int min, int max)
+        {
+            return (value < min) ? min : (value > max) ? max : value;
         }
 
         public void Dispose()
