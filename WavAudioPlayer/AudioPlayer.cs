@@ -57,7 +57,6 @@ namespace WavAudioPlayer
             {
                 throw new Exception("Failed to play sound. Ensure the file path is correct and the file is a valid WAV file.");
             }
-
         }
 
         public void StopSound()
