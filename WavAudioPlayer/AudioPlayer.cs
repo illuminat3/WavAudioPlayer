@@ -65,7 +65,7 @@ namespace WavAudioPlayer
             PlaySound(null, IntPtr.Zero, SND_PURGE);
         }
 
-        private void SetVolume(int volume)
+        public void SetVolume(int volume)
         {
             currentVolume = Clamp(volume, 0, 100);
 
