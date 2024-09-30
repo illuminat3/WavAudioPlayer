@@ -6,9 +6,14 @@
 	<Version>1.0.1</Version>
 	<Authors>Matthew Rawson</Authors>
 	<Description>Wav Audio player for Windows only that uses the winmm dll</Description>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<RepositoryUrl>https://github.com/illuminat3/WavAudioPlayer.git</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
+	<ItemGroup>
+		<None Include="../README.md" Pack="true" PackagePath="/"/>
+	</ItemGroup>	
+	
 </Project>
