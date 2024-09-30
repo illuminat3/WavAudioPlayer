@@ -14,7 +14,7 @@ namespace WavAudioPlayer
         // Flags for playing sound
         private const uint SND_ASYNC = 0x0001;
         private const uint SND_FILENAME = 0x00020000;
-        public const uint SND_PURGE = 0x0040;
+        private const uint SND_PURGE = 0x0040;
 
         private bool disposed = false;
         private int currentVolume = 100;
