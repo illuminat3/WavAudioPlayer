@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	<PackageId>WavAudioPlayer</PackageId>
-	<Version>1.0.0</Version>
+	<Version>1.0.1</Version>
 	<Authors>Matthew Rawson</Authors>
 	<Description>Wav Audio player for Windows only that uses the winmm dll</Description>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
